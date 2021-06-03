@@ -11,7 +11,7 @@ network:
   ethernets:
     ens3:
         dhcp4: no
-        addresses: [10.0.1.2/24]
+        addresses: [10.0.1.9/24]
         gateway4: 10.0.1.1
         nameservers:
             addresses: [8.8.8.8, 8.8.4.4]
@@ -24,8 +24,8 @@ grep "nameserver" /etc/resolv.conf
 echo "On test google.fr"
 dig +short google.fr | tail -n1
 
-echo "On test influxdb.ravin-cloud.fr"
-dig +short influxdb.ravin-cloud.fr | tail -n1
+echo "On test influxdb.ravindra-job.com"
+dig +short influxdb.ravindra-job.com | tail -n1
 
 #What is my DNS ?
 #systemd-resolve --status | grep 'DNS Servers' -A2
@@ -63,7 +63,7 @@ network:
   ethernets:
     ens3:
         dhcp4: no
-        addresses: [10.0.1.2/24]
+        addresses: [10.0.1.9/24]
         gateway4: 10.0.1.1
         nameservers:
             addresses: [10.0.1.2]
@@ -79,6 +79,6 @@ grep "nameserver" /etc/resolv.conf
 echo "On test google.fr"
 dig +short google.fr | tail -n1
 
-echo "On test influxdb.ravin-cloud.fr"
-dig +short influxdb.ravin-cloud.fr | tail -n1
+echo "On test influxdb.ravindra-job.com"
+dig +short influxdb.ravindra-job.com | tail -n1
 
