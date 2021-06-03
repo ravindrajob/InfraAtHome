@@ -1,0 +1,38 @@
+version: "3"
+
+services:
+  server:
+    image: gitea/gitea:1.14.1
+    container_name: gitea
+    environment:
+      - USER_UID=1000
+      - USER_GID=1000
+    restart: unless-stopped 
+    volumes:
+      - gitea-vol:/data
+      - /etc/timezone:/etc/timezone:ro
+      - /etc/localtime:/etc/localtime:ro
+    ports:
+     - "8080:3000"
+     - "2221:22"
+    cap_add:
+      - SYS_ADMIN
+      - DAC_READ_SEARCH
+    tty: true
+    stdin_open: true       
+
+volumes:
+  gitea-vol:
+    driver: local
+    driver_opts:
+      type: nfs
+      o: addr=10.0.1.X,rw,nolock
+      device: ":/gitea"
+
+networks:
+  default:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+      - subnet:  172.16.1.0/24      

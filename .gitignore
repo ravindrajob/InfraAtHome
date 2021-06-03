@@ -1,0 +1,3 @@
+/supervision/prometheus/**
+!/supervision/prometheus/prometheus.yml
+

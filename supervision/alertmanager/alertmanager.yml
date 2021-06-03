@@ -1,0 +1,14 @@
+global:
+  smtp_smarthost: 'localhost:25'
+  smtp_from: 'alertmanager@ravindra-job.com'
+  smtp_auth_username: 'alertmanager'
+  smtp_auth_password: 'YouPassword'
+templates:
+- '/etc/alertmanager/template/*.tmpl'
+route:
+  repeat_interval: 3h
+  receiver: team-X-mails
+receivers:
+- name: 'team-X-mails'
+  email_configs:
+  - to: 'team-X+alerts@example.org'

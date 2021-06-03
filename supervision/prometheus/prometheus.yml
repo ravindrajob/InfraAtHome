@@ -1,0 +1,158 @@
+global:
+  scrape_interval: 35s
+
+rule_files:
+- "/etc/prometheus/alert.rules"
+
+alerting:
+  alertmanagers:
+  - scheme: http
+    path_prefix: /
+    static_configs:
+      - targets: ["alertmanager:9093"]
+
+scrape_configs:
+########################  FROM WAN   ########
+
+- job_name: 'ravincloudFromWAN'
+  metrics_path: /probe
+  params:
+    module: [http_2xx]  # Look for a HTTP 200 response.
+  static_configs:
+    - targets:
+      - https://apigw.ravindra-job.com
+      - https://domoticz.ravindra-job.com
+      - https://grafana.ravindra-job.com
+      - https://habridge.ravindra-job.com
+      - https://openvpn.ravindra-job.com
+      - https://smsgw.ravindra-job.com
+      - https://plex.ravindra-job.com/web/index.html
+      - https://prometheus.ravindra-job.com
+      - https://qnap.ravindra-job.com
+      - https://ravindra-job.com
+      - https://webdav.ravindra-job.com
+      - https://www.ravindra-job.com        
+      - https://influxdb.ravindra-job.com
+      - https://chronograf.ravindra-job.com
+      - https://nextcloud.ravindra-job.com
+      - http://ravindra-job.com
+      
+  relabel_configs:
+    - source_labels: [__address__]
+      target_label: __param_target
+    - source_labels: [__param_target]
+      target_label: instance
+    - target_label: __address__
+      replacement: AzureIp:9115
+
+
+
+########################   FROM TRUST  10  ########
+- job_name: 'ravincloudFromTcpTRUST'
+  metrics_path: /probe
+  params:
+    module: ['tcp_connect']
+  static_configs:
+    - targets:
+      - apigw.ravindra-job.com:80
+      - domoticz.ravindra-job.com:80
+      - grafana.ravindra-job.com:3000
+      - habridge.ravindra-job.com:80
+      - smsgw.ravindra-job.com:80
+      - plex.ravindra-job.com:80
+      - qnap.ravindra-job.com:80
+      - webdav.ravindra-job.com:80
+      - plex.ravindra-job.com:32400
+      - pi-hole.ravindra-job.com:80
+        
+  relabel_configs:
+    - source_labels: [__address__]
+      target_label: __param_target
+    - source_labels: [__param_target]
+      target_label: instance
+    - target_label: __address__
+      replacement: blackboxexporter:9115
+
+- job_name: 'ravincloudFromHttpTRUST'
+  metrics_path: /probe
+  params:
+          # module: [http_2xx]  # Look for a HTTP 200 response
+    module: ['http_2xx']
+  static_configs:
+    - targets:
+      - http://apigw.ravindra-job.com
+      - http://domoticz.ravindra-job.com
+      - http://grafana.ravindra-job.com:3000
+      - http://habridge.ravindra-job.com
+      - http://smsgw.ravindra-job.com
+      - http://plex.ravindra-job.com:32400
+      - http://qnap.ravindra-job.com
+      - http://webdav.ravindra-job.com
+      - https://google.fr
+      - http://pi-hole.ravindra-job.com
+  relabel_configs:
+    - source_labels: [__address__]
+      target_label: __param_target
+    - source_labels: [__param_target]
+      target_label: instance
+    - target_label: __address__
+      replacement: blackboxexporter:9115
+
+- job_name: 'ravincloudFromPingTRUST'
+  metrics_path: /probe
+  params:
+    module: ['icmp']
+  static_configs:
+    - targets:
+      - 8.8.8.8 #google
+      - 10.0.1.x # Freebox
+      - 10.0.1.x #Nginx
+      - 10.0.1.x #bind
+      - 192.168.0.254 #Freebox
+      - 10.0.1.x # Owncloud
+      - 10.0.1.x # plex zotac
+      - 10.0.1.x #Database
+      - 10.0.1.x # Pi hole RPI4
+      - 10.0.1.x # apigw - rpi3
+      - 10.0.1.x  #Domoticz RPI4
+  relabel_configs:
+    - source_labels: [__address__]
+      target_label: __param_target
+    - source_labels: [__param_target]
+      target_label: instance
+    - target_label: __address__
+      replacement: blackboxexporter:9115
+
+- job_name: 'XiaomiFromPingTRUST'
+  metrics_path: /probe
+  params:
+    module: ['icmp']
+  static_configs:
+    - targets:
+      - 192.168.1.8 #Strip cuisine 
+      - 192.168.1.x #Plafonnier cuisine
+      - 192.168.1.x #Plafonnier Salon
+      - 192.168.1.x #Aspirateur ROBOROCK
+      - 192.168.1.x #plafonnier entree
+      - 192.168.1.x # plafonnier salle de bain
+      - 192.168.1.x #Strip Lit
+      - 192.168.1.x #Purifier
+      - 192.168.1.x #SOnoff Guirlande
+      - 192.168.1.x #IR GW chambre
+      - 192.168.1.x #E27 Chambre
+  relabel_configs:
+    - source_labels: [__address__]
+      target_label: __param_target
+    - source_labels: [__param_target]
+      target_label: instance
+    - target_label: __address__
+      replacement: blackboxexporter:9115
+
+- job_name: 'miflora'
+  static_configs:
+    - targets: ['domoticz.ravindra-job.com:9294']
+
+      #- job_name: 'prometheus'
+      #  scrape_interval: 10s
+      #  static_configs:
+      #    - targets: ['localhost:9090','cadvisor:8080','node-exporter:9100']

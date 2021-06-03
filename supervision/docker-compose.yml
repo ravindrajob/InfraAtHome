@@ -1,0 +1,107 @@
+version: '3.1'
+services:
+  telegraf:
+    image: telegraf:latest
+    container_name: telegraf
+    volumes:
+      - ./telegraf/telegraf.conf:/etc/telegraf/telegraf.conf:ro
+      - ./telegraf/telegraf.d:/etc/telegraf/telegraf.d:ro
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - /sys:/rootfs/sys:ro
+      - /proc:/rootfs/proc:ro
+      - /etc:/rootfs/etc:ro        
+    environment:
+      ENABLE_METRICS: 'true'
+      HOST_PROC: /rootfs/proc
+      HOST_SYS: /rootfs/sys
+      HOST_ETC: /rootfs/etc
+    labels:
+      - "docker.group=<some_name>"      
+    dns:
+      - 10.0.1.2
+#    extra_hosts:
+#      - "influxdb.ravindra-job.com:10.0.1.20"        
+
+  blackboxexporter:
+    image: prom/blackbox-exporter
+    volumes:
+      - ./blackboxexporter:/config
+      - ./alertmanager/alert.rules:/alertmanager/alert.rules
+    command:
+      - '--config.file=/config/blackbox.yml'
+    ports:
+      - 9115:9115
+    restart: always
+
+  prometheus-1:
+    image: prom/prometheus:v2.24.1
+    user: "1000:1000"
+    volumes:
+      - ./prometheus/:/etc/prometheus/
+      - ./prometheus/:/prometheus
+      - ./alertmanager/alert.rules:/etc/prometheus/alert.rules
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+      - '--storage.tsdb.path=/prometheus'
+      - '--storage.tsdb.max-block-duration=30m'
+      - '--storage.tsdb.min-block-duration=30m'
+      - '--web.enable-lifecycle'
+      - '--web.console.libraries=/usr/share/prometheus/console_libraries'
+      - '--web.console.templates=/usr/share/prometheus/consoles'
+    ports:
+      - 9090:9090
+    links:
+      - alertmanager:alertmanager
+      - blackboxexporter
+      - telegraf
+    depends_on:
+      - blackboxexporter
+    restart: always
+    dns:
+      - 10.0.1.2
+    
+
+  alertmanager:
+    image: prom/alertmanager:v0.21.0
+    ports:
+        - 9093:9093
+    volumes:
+        - ./alertmanager/:/etc/alertmanager/
+    command:
+        - '--config.file=/etc/alertmanager/alertmanager.yml'
+        - '--storage.path=/alertmanager'
+    restart: always
+
+  grafana:
+    image: grafana/grafana:7.3.7
+    user: "1000:1000"
+    depends_on:
+      - prometheus-1
+      - alertmanager
+    links:
+      - alertmanager:alertmanager
+      - prometheus-1:prometheus-1
+    ports:
+      - 3000:3000
+    volumes:
+      - ./grafana/:/var/lib/grafana:rw
+      - ./grafana/provisioning/:/etc/grafana/provisioning/
+      - ./grafana/grafana.ini:/etc/grafana/grafana.ini
+    env_file:
+      - ./grafana/grafana.config
+    restart: always
+    dns:
+      - 10.0.1.1
+
+    environment:
+      - GF_INSTALL_PLUGINS=pierosavi-imageit-panel,jdbranham-diagram-panel,grafana-piechart-panel,grafana-worldmap-panel
+    restart: always
+
+networks:
+  default:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+      - subnet:  172.16.6.0/24
+      

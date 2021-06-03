@@ -1,0 +1,33 @@
+version: "2.1"
+services:
+  plex:
+    image: ghcr.io/linuxserver/plex
+    container_name: plex
+    #network_mode: host
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - VERSION=docker
+      - PLEX_CLAIM= #optional
+    volumes:
+      - ./config:/config
+      - ./tv:/tv
+      - ./movies:/movies
+      - nas-share:/mnt/YourNasFolder
+    ports:
+      - "32400:32400"      
+volumes:
+  nas-share:
+    driver: local
+    driver_opts:
+      type: nfs
+      o: addr=10.0.x.x,rw,nolock
+      device: ":/YourNasFolder"
+      
+networks:
+    default:
+      driver: bridge
+      ipam:
+        driver: default
+        config:
+        - subnet:  172.16.7.0/24

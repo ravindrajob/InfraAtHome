@@ -1,0 +1,18 @@
+version: '2'
+services:
+  mirobot-miio-server:
+    image: demydiuk/mirobot-miio-server
+    container_name: mirobot-miio-server
+    environment:
+      - ROBOT_IP=192.168.X.X
+      - ROBOT_TOKEN=XXXX
+    ports:
+      - "22222:22222"
+    restart: always
+networks:
+  default:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+      - subnet:  172.16.8.0/24    
