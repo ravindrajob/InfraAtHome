@@ -88,7 +88,6 @@ netplan apply
 systemctl restart systemd-networkd
 systemctl restart systemd-resolved.service
 
-
 echo "les serveur DNS sur cette VM sont : "
 grep "nameserver" /etc/resolv.conf
 
