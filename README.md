@@ -1,6 +1,6 @@
 # InfraAtHome
 
-Here a simple example of my infrastrcture at home, simple and just enought for my need :)
+Here a simple example of my infrastructure at home, simple and just enought for my need :)
 
 ## Why expose through a reverse proxy
 The benefits of  reverse proxy is 
