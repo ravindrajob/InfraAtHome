@@ -1,0 +1,22 @@
+version: '3.3'
+services:
+  flora:
+     image: ruimarinho/miflora-mqtt
+     container_name: miflora-mqtt-compose
+     network_mode: host
+     volumes:
+       - './config:/config'
+     environment:
+       - MIFLORA_MQTT_HOSTNAME=10.0.1.10
+#       - 'MIFLORA_SENSORS_0_citrusX=80:EA:CA:88:EB:88'
+       - 'MIFLORA_SENSORS_1_spathiphyllum=C4:xx:xx:xx:xx:xx'
+       - 'MIFLORA_SENSORS_2_aloevera=C4:xx:xx:xx:xx:xx'
+       - 'MIFLORA_SENSORS_3_basilic=C4:xx:xx:xx:xx:xx'
+       - 'MIFLORA_SENSORS_4_menthe=C4:xx:xx:xx:xx:xx'
+       - 'MIFLORA_SENSORS_5_tomatescerise=C4:xx:xx:xx:xx:xx'
+       - 'MIFLORA_SENSORS_6_cactussalon=C4:xx:xx:xx:xx:xx'
+       - 'MIFLORA_SENSORS_7_cactuschambre=C4:xx:xx:xx:xx:xx'
+       - 'MIFLORA_SENSORS_8_persil=C4:xx:xx:xx:xx:xx'
+       - 'MIFLORA_SENSORS_9_basiliccuisine=C4:xx:xx:xx:xx:xx'
+       - MIFLORA_DAEMON_PERIOD=43200
+

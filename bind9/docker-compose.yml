@@ -11,17 +11,20 @@ services:
       - /etc/timezone:/etc/timezone:ro
       - /etc/localtime:/etc/localtime:ro
     ports:
-    - 10.0.1.2:53:53/udp
-    - 10.0.1.2:53:53/tcp            
+    - 10.20.1.20:53:53/udp
+    - 10.20.1.20:53:53/tcp            
 #   - "53:53/udp"
 #   - "53:53/tcp"
     - "8053:8053/tcp"
+
+#Your NFS volume 
+
 volumes:
   bind_vol:
     driver: local
     driver_opts:
       type: nfs
-      o: addr=10.0.1.4,rw,nolock
+      o: addr=10.20.1.2,rw,nolock
       device: ":/bind"
 
 networks:

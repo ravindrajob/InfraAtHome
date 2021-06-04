@@ -31,7 +31,7 @@ services:
       - '--config.file=/config/blackbox.yml'
     ports:
       - 9115:9115
-    restart: always
+    restart: unless-stopped
 
   prometheus-1:
     image: prom/prometheus:v2.24.1
@@ -56,7 +56,7 @@ services:
       - telegraf
     depends_on:
       - blackboxexporter
-    restart: always
+    restart: unless-stopped
     dns:
       - 10.0.1.2
     
@@ -70,7 +70,7 @@ services:
     command:
         - '--config.file=/etc/alertmanager/alertmanager.yml'
         - '--storage.path=/alertmanager'
-    restart: always
+    restart: unless-stopped
 
   grafana:
     image: grafana/grafana:7.3.7
@@ -89,13 +89,13 @@ services:
       - ./grafana/grafana.ini:/etc/grafana/grafana.ini
     env_file:
       - ./grafana/grafana.config
-    restart: always
+    restart: unless-stopped
     dns:
-      - 10.0.1.1
+      - 10.0.1.1 #Your local dns or your Pi-hole
 
     environment:
       - GF_INSTALL_PLUGINS=pierosavi-imageit-panel,jdbranham-diagram-panel,grafana-piechart-panel,grafana-worldmap-panel
-    restart: always
+    restart: unless-stopped
 
 networks:
   default:

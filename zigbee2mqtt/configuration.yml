@@ -1,0 +1,14 @@
+homeassistant: false
+permit_join: true
+frontend:
+  port: 8090
+mqtt:
+  user: YourMqttUser
+  password: YourPassword!
+  base_topic: zigbee2mqtt
+  server: 'mqtt://localhost'
+serial:
+  port: /dev/ttyUSB0
+advanced:
+  pan_id: 6758
+  cache_state: false

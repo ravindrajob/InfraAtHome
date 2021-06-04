@@ -30,27 +30,43 @@ dig +short influxdb.ravindra-job.com | tail -n1
 #What is my DNS ?
 #systemd-resolve --status | grep 'DNS Servers' -A2
 
-cd /home/ravin/docker/bind9
+cd /home/ravindrajob/docker/bind9
 systemctl stop systemd-resolved.service
 docker-compose up -d
 
-cd /home/ravin/docker/next-cloud
+## /!\
+## ---> Next update use a foreach .
+
+cd /home/ravindrajob/docker/next-cloud
 #docker-compose down --volumes && docker-compose stop &&
 docker-compose up -d
 #cat local_file.sh | docker exec -i container_name bash
-cd /home/ravin/docker/mirobo
+cd /home/ravindrajob/docker/mirobo
 docker-compose up -d
 
-cd /home/ravin/docker/gitea
+cd /home/ravindrajob/docker/gitea
 docker-compose up -d
 
-cd /home/ravin/docker/supervision
+cd /home/ravindrajob/docker/supervision
 docker-compose up -d
 
-cd /home/ravin/docker/plex
+cd /home/ravindrajob/docker/plex
 docker-compose up -d
 
+cd /home/ravindrajob/docker/miflora-mqtt
+docker-compose up -d
 
+cd /home/ravindrajob/docker/mosquitto
+docker-compose up -d
+
+cd /home/ravindrajob/docker/pi-hole
+docker-compose up -d
+
+cd /home/ravindrajob/docker/nginx
+docker-compose up -d
+
+cd /home/ravindrajob/docker/zigbee2mqtt
+docker-compose up -d
 ###################################################
 # On applique le DNS bind 10.0.1.2  à notre VM Docker
 ####

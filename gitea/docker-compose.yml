@@ -26,7 +26,7 @@ volumes:
     driver: local
     driver_opts:
       type: nfs
-      o: addr=10.0.1.X,rw,nolock
+      o: addr=10.20.1.2,rw,nolock
       device: ":/gitea"
 
 networks:

@@ -1,0 +1,18 @@
+version: '3'
+services:
+  mosquitto:
+    container_name: mosquitto-compose
+    image: eclipse-mosquitto:latest
+    restart: always
+    deploy:
+      resources:
+        limits:
+          memory: 125M
+    ports:
+       - "1883:1883"
+       - "9001:9001"
+    restart: unless-stopped
+
+    
+    
+    

@@ -1,0 +1,17 @@
+version: '3'
+services:
+  zigbee2mqtt:
+    container_name: zigbee2mqtt-compose
+    image: koenkk/zigbee2mqtt
+    volumes:
+      - /opt/zigbee2mqtt/data:/app/data
+      - /etc/localtime:/etc/localtime:ro
+      #- ./data:/app/data
+    devices:
+      # CC251
+      #- /dev/ttyUSB_cc2531:/dev/ttyACM0
+      # CC2530 / GBAN GB2530S
+      #- /dev/ttyUSB_cc2530:/dev/ttyACM0
+      - /dev/ttyUSB0:/dev/ttyUSB0
+    restart: always
+    network_mode: host
