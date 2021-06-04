@@ -27,6 +27,4 @@ In my case i need DNS view, but Pi-hole don't implemented this feature.
 
 ## Why use latest and not a specific version ?
 
-## Why use gitea and not github ?
-
-## Why use gitea and not github ?
+## Why use Gitea and not GitHub ?
