@@ -1,6 +1,7 @@
 # InfraAtHome
-<<<<<<< HEAD
-Here a simple example of my infrastrcture at home, simple and just enought for my need :)
+
+Here a simple example of my infrastrcture at home, simple and just enought for my need 
+![alt text](https://ravindrajob.blob.core.windows.net/assets/HL-InfraAtHome.png)
 
 ## Why use a local DNS ?
 
@@ -16,5 +17,4 @@ Here a simple example of my infrastrcture at home, simple and just enought for m
 
 ## Why use gitea and not github ?
 =======
-Here a simple example of my infrastructure at home, simple and just enought for my needs :)
->>>>>>> b2234e3c32e90d718d59bf22cd1c355bd13fa0d5
+

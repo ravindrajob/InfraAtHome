@@ -138,7 +138,7 @@ body {
     font-variant: normal;
     text-rendering: auto;
     line-height: 1; */
-    background:url('https://bootmonitoring.blob.core.windows.net/publicassets/Sat-OFF.png');
+    background:url('https://mybucket.blob.core.windows.net/publicassets/OFF.png');
 
     height: 20px;
     width: 20px;
@@ -177,8 +177,6 @@ body {
 }
 
 
-/*-------------------------popup------------------------*/
-/* credits: https://www.youtube.com/watch?v=lAS2glU0xlc */
 .overlay {
     display: flex;
     align-items: center;
@@ -280,8 +278,6 @@ body {
 }
 
 
-/*-----------------------parallax-----------------------*/
-/* credits: https://www.youtube.com/watch?v=aywzn9cf-_U */
 #stars1 {
     width: 1px;
     height: 1px;
