@@ -10,7 +10,7 @@ The benefits of  reverse proxy is
 - secure SSL encryption, and
 - protection from DDoS attacks and related security issues.
 
-In my case i will use this compenent only for ssl encryption, and control the access by usiing basic authent, Fail2ban, and ip filtered
+In my case i will use this component only for ssl encryption, and control the access by using opensoruce tools like basic authent, Fail2ban, MFA, and ip filtered
 Actually i expose only 1 server on 443/80
 
 ![alt text](https://ravindrajob.blob.core.windows.net/assets/HL-InfraAtHome.png)
