@@ -26,5 +26,7 @@ In my case i need DNS view, but Pi-hole don't implemented this feature.
 ## Why use a scripts to start all Docker-compose ?
 
 ## Why use latest and not a specific version ?
+The tag latest is used by default in my examples. In my "production" i use a specific version. I use latest in my DEV environment.
 
 ## Why use Gitea and not GitHub ?
+Because is "Self-hosted"
