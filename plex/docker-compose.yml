@@ -21,9 +21,9 @@ volumes:
     driver: local
     driver_opts:
       type: nfs
-      o: addr=10.20.1.2,rw,nolock
+      o: addr=10.20.1.2,ro,nolock
       device: ":/YourNasFolder"
-      
+    
 networks:
     default:
       driver: bridge

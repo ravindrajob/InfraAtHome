@@ -8,7 +8,7 @@ services:
        - './config:/config'
      environment:
        - MIFLORA_MQTT_HOSTNAME=10.0.1.10
-#       - 'MIFLORA_SENSORS_0_citrusX=80:EA:CA:88:EB:88'
+#      - 'MIFLORA_SENSORS_0_citrusX=80:EA:CA:88:EB:88'
        - 'MIFLORA_SENSORS_1_spathiphyllum=C4:xx:xx:xx:xx:xx'
        - 'MIFLORA_SENSORS_2_aloevera=C4:xx:xx:xx:xx:xx'
        - 'MIFLORA_SENSORS_3_basilic=C4:xx:xx:xx:xx:xx'
