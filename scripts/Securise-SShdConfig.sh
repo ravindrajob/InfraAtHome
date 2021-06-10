@@ -4,7 +4,7 @@ cat > /home/ravindra/.ssh/authorized_keys << EOF
 ssh-rsa *YourRsaKey*
 EOF
 
-#Securis
+#On créer un backup avant de modifier notre conf
 sudo cp /etc/ssh/sshd_config /etc/ssh/sshd_config.bak
 rm /etc/ssh/sshd_config
 
