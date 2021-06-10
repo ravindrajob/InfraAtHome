@@ -1,7 +1,14 @@
-############################################################################
-# On applique le DNS 8.8.8.8 à notre VM Docker pour installer les containers
-#####
+#!/bin/bash
 
+################################################################
+# Titre: Mini orchestrator de containers
+# Auteur: Ravindra JOB
+# Source: https://github.com/ravindrajob/
+# Update: 01/02/2021 [RJ]
+# Attention ce script ne fonctionne qu'à partir d'ubuntu 20.04
+################################################################
+
+# On applique le DNS 8.8.8.8 à notre VM Docker pour installer les containers
 systemctl start systemd-resolved.service
 rm /etc/netplan/00-installer-config.yaml
 cat > /etc/netplan/00-installer-config.yaml << EOF
