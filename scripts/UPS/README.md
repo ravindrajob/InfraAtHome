@@ -52,6 +52,4 @@ ups.timer.reboot: 0
 ups.timer.shutdown: -1
 ups.vendorid: 051d
 
-
-
-You Can use this scripts :)
+#You Can use this scripts :)
