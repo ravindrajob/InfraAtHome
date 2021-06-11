@@ -1,3 +1,11 @@
+######################################################################################
+# Titre:  Supression entière
+# Auteur: Ravindra JOB
+# Source: https://github.com/ravindrajob/
+# Update: 09/11/2018 [RJ]
+# Attention ce script supprime toutes les images, container, volumes, réseaux ....
+######################################################################################
+
 # Stop all containers
 docker stop `docker ps -qa`
 

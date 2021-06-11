@@ -1,3 +1,10 @@
+################################################################
+# Titre: Securation SSH des serveurs
+# Auteur: Ravindra JOB
+# Source: https://github.com/ravindrajob/
+# Update: 09/11/2018 [RJ]
+################################################################
+
 # Install your ssh key in your server
 mkdir /home/ravindra/.ssh
 cat > /home/ravindra/.ssh/authorized_keys << EOF
@@ -45,12 +52,7 @@ DebianBanner no
 ChallengeResponseAuthentication no
 KerberosAuthentication no
 GSSAPIAuthentication no
-
 EOF
+
 #Ne pas oublier de faire :
 sudo service sshd reload
-
-
-
-
-
