@@ -1,5 +1,7 @@
+#!/bin/bash
+
 ################################################################
-# Titre: Securation SSH des serveurs
+# Titre: Securisation des connnexion SSH des serveurs
 # Auteur: Ravindra JOB
 # Source: https://github.com/ravindrajob/
 # Update: 09/11/2018 [RJ]
