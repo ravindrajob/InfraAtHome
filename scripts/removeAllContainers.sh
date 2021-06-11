@@ -1,7 +1,7 @@
 #!/bin/bash
 
 ######################################################################################
-# Titre:  Supression entière
+# Titre:  Supression des containers
 # Auteur: Ravindra JOB
 # Source: https://github.com/ravindrajob/
 # Update: 09/11/2018 [RJ]
