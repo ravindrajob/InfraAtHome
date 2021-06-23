@@ -30,3 +30,35 @@ The tag latest is used by default in my examples. In my "production" i use a spe
 
 ## Why use Gitea and not GitHub ?
 Because is "Self-hosted"
+
+# Pre-recquis
+
+### LOKI
+```console
+cd /usr/libexec/docker/
+sudo ln -s docker-runc-current docker-runc 
+docker plugin install grafana/loki-docker-driver:latest --alias loki --grant-all-permissions
+ ```
+
+#### Verifie l'installation du driver
+```console
+docker plugin ls
+ ```
+
+#### Version de docker 
+```console
+ docker version
+ ```
+##### upgrade example :
+```console
+sudo yum remove docker docker-client docker-client-latest docker-common docker-latest docker-latest-logrotate docker-logrotate docker-selinux  docker-engine-selinux docker-engine
+sudo yum install -y yum-utils device-mapper-persistent-data lvm2
+sudo yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
+sudo yum install docker-ce
+
+
+sudo systemctl start docker
+sudo systemctl enable docker
+sudo systemctl status docker
+```
+##### REFERENCE : https://docs.docker.com/install/linux/docker-ce/centos/
