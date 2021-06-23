@@ -26,7 +26,7 @@ The tag latest is used by default in my examples. In my "production" i use a spe
 ## Why use Gitea and not GitHub ?
 Because is "Self-hosted"
 
-# Pre-recquis
+# Prerequisites
 
 ### LOKI
 ```console
