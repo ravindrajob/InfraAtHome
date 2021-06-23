@@ -17,17 +17,12 @@ Actually i expose only 1 server on 443/80
 
 ## Why use a local DNS ?
 If i use a dns server like google ( 8.8.8.8) i must registred all my local servers. And with my untrust and trust zonal, i need DNS view.
-
 ## Why use a DNS and a pi-hole  ?
 In my case i need DNS view, but Pi-hole don't implemented this feature.
-
 ## Why many docker-compose and not one ?
-
 ## Why use a scripts to start all Docker-compose ?
-
 ## Why use latest and not a specific version ?
 The tag latest is used by default in my examples. In my "production" i use a specific version. I use latest in my DEV environment.
-
 ## Why use Gitea and not GitHub ?
 Because is "Self-hosted"
 
@@ -39,13 +34,11 @@ cd /usr/libexec/docker/
 sudo ln -s docker-runc-current docker-runc 
 docker plugin install grafana/loki-docker-driver:latest --alias loki --grant-all-permissions
  ```
-
-#### Verifie l'installation du driver
+#### Check driver installation
 ```console
 docker plugin ls
  ```
-
-#### Version de docker 
+#### Docker version 
 ```console
  docker version
  ```
@@ -55,7 +48,6 @@ sudo yum remove docker docker-client docker-client-latest docker-common docker-l
 sudo yum install -y yum-utils device-mapper-persistent-data lvm2
 sudo yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
 sudo yum install docker-ce
-
 
 sudo systemctl start docker
 sudo systemctl enable docker
