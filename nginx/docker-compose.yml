@@ -1,0 +1,32 @@
+version: "3.4"
+
+nginx:
+  container_name: nginx
+  image: xcgd/nginx-vts:1.16.1-0.1.18
+  #image: nginx
+  volumes:
+    - /home/ravindra/docker/nginx/nginx.conf:/etc/nginx/nginx.conf
+    - /home/ravindra/docker/nginx/sites-enabled:/etc/nginx/sites-enabled/
+    - /home/ravindra/docker/nginx/admin-site:/etc/nginx/admin-site/
+    - /home/ravindra/docker/nginx/.htpasswd:/etc/nginx/.htpasswd
+  ports:
+    - 80:80
+    - 443:443
+  #depends_on:
+  #  - loki
+  restart: unless-stopped
+
+
+services:
+  my-nginx-service:
+    image: nginx
+    container_name: nginx
+    ports:
+      - 8000:80
+    environment:
+      - FOO=bar
+    logging:
+      driver: loki
+      options:
+        loki-url: http://MyLokiIP:3100/loki/api/v1/push
+        loki-external-labels: job=dockerlogs,owner=ravindra,environment=dev
