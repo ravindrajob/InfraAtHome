@@ -34,6 +34,9 @@ cd /usr/libexec/docker/
 sudo ln -s docker-runc-current docker-runc 
 docker plugin install grafana/loki-docker-driver:latest --alias loki --grant-all-permissions
  ```
+| :exclamation:   Be sure you have the last version of docker greater than 17  |
+|------------------------------------------------------------------------------|
+
 #### Check driver installation
 ```console
 docker plugin ls
