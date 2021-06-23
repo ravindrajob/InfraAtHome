@@ -27,8 +27,7 @@ The tag latest is used by default in my examples. In my "production" i use a spe
 Because is "Self-hosted"
 
 # Pre-recquis
-  <div class="alert alert-info"><i class="icon-lightbulb"></i><strong>INFO:</strong> LOKI
- </div>
+
 ### LOKI
 ```console
 cd /usr/libexec/docker/
