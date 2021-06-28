@@ -18,7 +18,7 @@ Actually i expose only 1 server on 443/80
 If i use a dns server like google (8.8.8.8) i must registred all my local servers. And with my untrust and trust zonal, i need DNS view.
 ## Why use a DNS and a pi-hole ?
 In my case i need DNS view, but Pi-hole don't implemented this feature.
-![alt text](https://fr.wikipedia.org/wiki/Pi-hole#/media/Fichier:Pi-hole_Screenshot.png)
+![alt text](https://ravindrajob.blob.core.windows.net/assets/piHole.png)
 source: https://github.com/pi-hole/pi-hole
 
 ## Why use trivy ?
