@@ -15,12 +15,15 @@ In my case i will use this component only for ssl encryption, and control the ac
 Actually i expose only 1 server on 443/80
 
 ## Why use a local DNS ?
-If i use a dns server like google ( 8.8.8.8) i must registred all my local servers. And with my untrust and trust zonal, i need DNS view.
-## Why use a DNS and a pi-hole  ?
+If i use a dns server like google (8.8.8.8) i must registred all my local servers. And with my untrust and trust zonal, i need DNS view.
+## Why use a DNS and a pi-hole ?
 In my case i need DNS view, but Pi-hole don't implemented this feature.
 
 ## Why use trivy ?
 Trivy is a simple and comprehensive vulnerability scanner for containers. Very easy to use. All need for scanning specify target such as an image name of the container.
+![alt text](https://github.com/aquasecurity/trivy/blob/main/docs/imgs/overview.png)
+See more: https://github.com/aquasecurity/trivy
+
 ## Why many docker-compose and not one ?
 * In progress 
 ## Why use a scripts to start all Docker-compose ?
