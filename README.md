@@ -15,23 +15,26 @@ The benefits of  reverse proxy is
 In my case i will use this component only for ssl encryption, and control the access by using opensoruce tools like basic authent, Fail2ban, MFA, and ip filtered
 Actually i expose only 1 server on 443/80
 
-
 ## Why use a local DNS ?
 If i use a dns server like google ( 8.8.8.8) i must registred all my local servers. And with my untrust and trust zonal, i need DNS view.
 ## Why use a DNS and a pi-hole  ?
 In my case i need DNS view, but Pi-hole don't implemented this feature.
 
 ## Why many docker-compose and not one ?
-* In progress *
+* In progress 
 ## Why use a scripts to start all Docker-compose ?
+* In progress 
 ## Why use latest and not a specific version ?
 The tag latest is used by default in my examples. In my "production" i use a specific version. I use latest in my DEV environment.
 ## Why use Gitea and not GitHub ?
 Because is "Self-hosted"
 
+## Why use a local registry and not a public registry ?
+In certain scenarios, you might not want to push your images outside of your network. In my case you can set up a local registry using the open source software project Distribution.
+
 # Prerequisites
 
-### LOKI
+### For LOKI
 "Loki - Cloud Native Log Aggregation by Grafana"
 ![alt text](https://ravindrajob.blob.core.windows.net/assets/loki.png)
 ##### Install
