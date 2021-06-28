@@ -1,0 +1,21 @@
+version: "3"
+services:
+  php:
+    #image: php:7.4-apache
+    build: .
+    container_name: php
+    volumes:
+      - ./apache2/sites-enabled/:/etc/apache2/sites-available
+      - ./html/:/var/www/html/
+      - ./scripts/:/scripts/
+    ports:
+      - 8081:80
+    restart: unless-stopped
+
+networks:
+  default:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+      - subnet:  172.16.10.0/24    
