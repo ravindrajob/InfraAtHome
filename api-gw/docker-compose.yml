@@ -2,7 +2,8 @@ version: "3"
 services:
   php:
     #image: php:7.4-apache
-    build: .
+    #build: .
+    image: registry.ravindra-job.com:5000/apigw:v0.02
     container_name: php
     volumes:
       - ./apache2/sites-enabled/:/etc/apache2/sites-available

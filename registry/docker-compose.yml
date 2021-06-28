@@ -1,0 +1,26 @@
+version: '3'
+services:
+  registry:
+    image: registry:2
+    ports:
+    - "5000:5000"
+    environment:
+      REGISTRY_STORAGE_FILESYSTEM_ROOTDIRECTORY: /data
+    volumes:
+      - registry-vol:/data
+
+volumes:
+  registry-vol:
+    driver: local
+    driver_opts:
+      type: nfs
+      o: addr=YourNASIP,rw,nolock
+      device: ":/registry"
+
+networks:
+  default:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+      - subnet:  172.16.11.0/24   
