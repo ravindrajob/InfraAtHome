@@ -80,8 +80,31 @@ x-logging:
  ```
 and 
    logging: *MyDocker-logging
-
 in each containers
+
+Like 
+```console
+...
+  alertmanager:
+    image: prom/alertmanager:v0.22.1
+    logging: *MyDocker-logging
+    ports:
+        - 9093:9093
+    volumes:
+        - /home/ravindra/docker/alertmanager/:/etc/alertmanager/
+    command:
+        - '--config.file=/etc/alertmanager/alertmanager.yml'
+        - '--storage.path=/alertmanager'
+    restart: unless-stopped
+
+  grafana:
+    image: grafana/grafana:8.0.2-ubuntu
+    user: "1000:1000"
+    logging: *MyDocker-logging
+...
+
+ ```
+
 
 If you have some timeout when you up your docker-compose use this ENV value :
 
