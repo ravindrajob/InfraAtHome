@@ -36,7 +36,7 @@ dig +short influxdb.ravindra-job.com | tail -n1
 
 # Sur quel serveur DNS suis-je ?
 #systemd-resolve --status | grep 'DNS Servers' -A2
-
+sleep 15
 cd /home/ravindrajob/docker/bind9
 systemctl stop systemd-resolved.service
 docker-compose up -d
