@@ -36,8 +36,8 @@ dig +short influxdb.ravindra-job.com | tail -n1
 
 # Sur quel serveur DNS suis-je ?
 #systemd-resolve --status | grep 'DNS Servers' -A2
-sleep 15
-cd /home/ravindrajob/docker/bind9
+sleep 5
+cd /home/ravindra/docker/bind9
 systemctl stop systemd-resolved.service
 docker-compose up -d
 
@@ -45,19 +45,19 @@ docker-compose up -d
 #netstat -tunlp
 
 #On démarre d'abord notre serveur DNS BIND
-cd /home/ravin/docker/bind9
+cd /home/ravindra/docker/bind9
 systemctl stop systemd-resolved.service
 docker-compose up -d
 
-cd /home/ravin/docker
+cd /home/ravindra/docker
 #on se déplace chacun des dossiers où sont nos docker-compose
 
 FolderDetected=$(ls -d */ | cut -f1 -d'/')
 
 for dockerFolder in $FolderDetected; do 
-  cd /home/ravin/docker/$dockerFolder
+  cd /home/ravindra/docker/$dockerFolder
   echo "Nous sommes dans le dossier"
-  echo "starting $FolderDetected ..."
+  echo "starting $dockerFolder ..."
   docker-compose up --build -d
 done
 
