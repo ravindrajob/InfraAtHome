@@ -45,6 +45,9 @@ Use this command to get the admin password
 ```console
 docker logs pihole | grep random
  ```
+Use this dashboard for grafana :
+https://grafana.com/grafana/dashboards/10176
+
 
 ### For LOKI
 "Loki - Cloud Native Log Aggregation by Grafana"

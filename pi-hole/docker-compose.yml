@@ -23,6 +23,18 @@ services:
     #  - NET_ADMIN
     restart: unless-stopped
 
+    pihole-exporter:
+      image: 'ekofr/pihole-exporter:latest'
+      environment:
+        - PIHOLE_HOSTNAME=pihole
+        - PIHOLE_PASSWORD=YourPasswoord
+        - INTERVAL=30s
+        - PORT=9617
+      ports:
+        - '9617:9617'
+      restart: unless-stopped
+          
+   
 networks:
   default:
     driver: bridge
