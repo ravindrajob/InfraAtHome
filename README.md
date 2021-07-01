@@ -185,3 +185,6 @@ log_format json_analytics escape=json '{'
  access_log /var/log/nginx/json_access.log json_analytics;
 
 ```
+### For PlantFlora
+You can use this exporter and build a similar dashbaord with this 
+![alt text](https://ravindrajob.blob.core.windows.net/assets/N5-Miflora.png)
