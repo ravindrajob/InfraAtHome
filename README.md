@@ -190,5 +190,5 @@ You can use this exporter
 
 https://github.com/ThomDietrich/miflora-mqtt-daemon
 
-and build a similar dashbaord with this :
+and build a similar dashboard with this :
 ![alt text](https://ravindrajob.blob.core.windows.net/assets/N5-Miflora.png)
