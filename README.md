@@ -186,5 +186,9 @@ log_format json_analytics escape=json '{'
 
 ```
 ### For PlantFlora
-You can use this exporter and build a similar dashbaord with this 
+You can use this exporter 
+
+https://github.com/ThomDietrich/miflora-mqtt-daemon
+
+and build a similar dashbaord with this :
 ![alt text](https://ravindrajob.blob.core.windows.net/assets/N5-Miflora.png)
