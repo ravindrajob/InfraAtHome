@@ -40,6 +40,12 @@ In certain scenarios, you might not want to push your images outside of your net
 
 # Prerequisites
 
+### For Pi-hole
+Use this command to get the admin password
+```console
+docker logs pihole | grep random
+ ```
+
 ### For LOKI
 "Loki - Cloud Native Log Aggregation by Grafana"
 ![alt text](https://ravindrajob.blob.core.windows.net/assets/loki.png)
