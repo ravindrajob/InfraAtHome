@@ -1,0 +1,11 @@
+admin-gwc-dev.prd.ravindra-job.com
+bbe-gwc-dev.prd.ravindra-job.com
+prom1-gwc-dev.prd.ravindra-job.com
+prom2-gwc-dev.prd.ravindra-job.com
+querier-gwc-dev.prd.ravindra-job.com
+store-gw-gwc-dev.prd.ravindra-job.com
+compactor-gwc-dev.prd.ravindra-job.com
+ruler-gwc-dev.prd.ravindra-job.com
+alertmanager-gwc-dev.prd.ravindra-job.com
+portainer-gwc-dev.prd.ravindra-job.com
+loki-gwc-dev.prd.ravindra-job.com
