@@ -14,7 +14,7 @@ cat > /etc/docker/daemon.json << EOF
     "max-size": "50m",
     "max-file": "10"
   },
-  "registry-mirrors": ["yourregistryIP:5000"]
+  "insecure-registries": ["yourregistryIP:5000"]
 }
 EOF
 
