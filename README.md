@@ -192,3 +192,24 @@ https://github.com/ThomDietrich/miflora-mqtt-daemon
 
 and build a similar dashboard with this :
 ![alt text](https://ravindrajob.blob.core.windows.net/assets/N5-Miflora.png)
+
+
+
+
+### crontab
+
+I use cron to schedule some scripts. Here is an example of my nginx cron job :
+```console
+crontab -e
+```
+
+```console
+@daily service nginx stop && certbot renew --quiet && service nginx start
+0 1 * * 1 /home/ravindra/scripts/sauvegarde.sh
+#@reboot curl "https://smsgw.ravindra-job.com/?message=Nginx%20vient%20de%20redemarrer&number=0600000000&token=MyToken"
+@reboot  bash /home/ravindra/scripts/SmsStart.sh
+
+# Start the pen test every 10 minute
+*/10 * * * * /home/ravindra/scripts/gandidns.sh
+*/10 * * * * /home/ravindra/scripts/whitelist_public_IP_nginx.sh
+```
