@@ -31,8 +31,10 @@ unit	Query	Elasticsearch-Metricbeat	```{"find": "terms", "field": "systemd.unit"
 
 ### LOKI
 
-Par exemple pour LOKI si on souahite afficher de manière dynamique tous les host dans une variable pour faire varié nos dashbaords nous pouvons mettre : 
+Par exemple, pour LOKI si on souhaite afficher de manière dynamique tous les "host" dans une variable pour faire varié nos dashbaords par exemple,nous utiliserons mettre : 
 
 ```label_values(host)```
 
-Cela nous affichera toutes les host disponibles 
+Cela nous affichera toutes les "host" disponibles 
+
+![Alt text](./lokiquery.png?raw=true "Title")
