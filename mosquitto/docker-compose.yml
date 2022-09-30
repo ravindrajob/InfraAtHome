@@ -3,7 +3,6 @@ services:
   mosquitto:
     container_name: mosquitto-compose
     image: eclipse-mosquitto:latest
-    restart: always
     deploy:
       resources:
         limits:
