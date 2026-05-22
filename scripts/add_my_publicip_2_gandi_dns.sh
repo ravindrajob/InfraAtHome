@@ -6,7 +6,7 @@
 # Source: https://github.com/ravindrajob/
 # Update: 22/05/2026 [v1.0 | RJ]
 ################################################################
-. /home/ravindra/scripts/credential # Comprend les identifiants de mon API GANDI
+. /home/ravindra/scripts/credential # Comprend les identifiants de l' API GANDI
 
 API="https://dns.api.gandi.net/api/v5/"
 IP_SERVICE="http://me.gandi.net"

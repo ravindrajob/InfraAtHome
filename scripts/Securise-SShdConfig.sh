@@ -17,7 +17,7 @@ EOF
 sudo cp /etc/ssh/sshd_config /etc/ssh/sshd_config.bak
 rm /etc/ssh/sshd_config
 
-#Voir ma configuration actuel
+#Voir la configuration actuel
 #sudo sshd -T
 
 sudo cat > /etc/ssh/sshd_config << EOF
