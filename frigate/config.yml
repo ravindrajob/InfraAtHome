@@ -1,35 +1,39 @@
 ################################################################
-# Titre: config.yml
-# Description : Configuration Frigate NVR pour le Lab de Simulation
+# Titre: config.yml (Frigate Advanced)
+# Description : Configuration Frigate avec accélération moderne et MQTT
 # Auteur: Ravindra JOB
 # Source: https://github.com/ravindrajob/
-# Update: 22/05/2026 [v1.0 | RJ]
+# Update: 22/05/2026 [v1.1 | RJ] Adding OpenVINO & Detailed MQTT events
 ################################################################
-# ==============================================================================
-# Fichier : config.yml
-# Description : Configuration Frigate NVR pour le Lab de Simulation
-# Environnement : Lab public de démonstration (ravindra-job.com)
-# ==============================================================================
 
 mqtt:
-  host: n8n.ravindra-job.com # Simulation d'un broker sur le meme réseau lab
+  host: n8n.ravindra-job.com
   user: ${MQTT_USER}
   password: ${MQTT_PASSWORD}
+  topic_prefix: frigate
+  client_id: frigate_lab
 
+# Accélération matérielle moderne (CAF & CNCF Compliance)
 detectors:
-  coral:
-    type: edgetpu
-    device: usb
+  # Option 1: Intel OpenVINO (Standard pour les CPU Intel modernes)
+  ov:
+    type: openvino
+    device: AUTO
+  # Option 2: Google Coral (Historique)
+  # coral:
+  #   type: edgetpu
+  #   device: usb
 
 cameras:
   entree_principale:
     ffmpeg:
       inputs:
-        - path: rtsp://viewer:password@192.168.1.50:554/cam/realmonitor?channel=1&subtype=1
+        - path: rtsp://viewer:password@10.100.0.50:554/cam/realmonitor?channel=1&subtype=1
           roles:
             - detect
             - rtmp
     detect:
+      enabled: true
       width: 1280
       height: 720
       fps: 5
@@ -37,29 +41,16 @@ cameras:
       track:
         - person
         - car
-        - dog
+    snapshots:
+      enabled: true
+      timestamp: true
+      bounding_box: true
+      retain:
+        default: 7
 
-  jardin_arriere:
-    ffmpeg:
-      inputs:
-        - path: rtsp://viewer:password@192.168.1.51:554/cam/realmonitor?channel=1&subtype=1
-          roles:
-            - detect
-    detect:
-      width: 1280
-      height: 720
-      fps: 5
-    objects:
-      track:
-        - person
+# Configuration de la publication des événements pour le ChatOps
+database:
+  path: /config/frigate.db
 
-# Enregistrement des clips lors de la detection d'une personne
-record:
-  enabled: true
-  retain:
-    days: 7
-    mode: motion
-  events:
-    retain:
-      default: 14
-      mode: active_objects
+event_detention:
+  days: 14
