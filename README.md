@@ -1,4 +1,11 @@
 # InfraAtHome
+
+💡 **Philosophie & Partage :** 
+Je suis un ingénieur passionné d'infrastructure et extrêmement pointilleux sur la cybersécurité. L'auto-hébergement et l'automatisation sont bien plus qu'un métier pour moi. Ce dépôt est mon **laboratoire de démonstration**. (OPSEC oblige, mon infrastructure réelle de production est totalement isolée). 
+Je partage ici ces configurations publiquement et gratuitement pour évangéliser les bonnes pratiques (Security by Design, automatisation, conteneurisation). Le code que vous trouverez ici est pensé pour être carré, méticuleux, sécurisé (pas de secrets en clair, gestion stricte des ports, utilisation de `.env`) et prêt à être réutilisé pour vos propres labs !
+
+---
+
 Here a simple example of my infrastructure at home, simple and just enought for my need :)
 
 ![alt text](https://ravindrajob.blob.core.windows.net/assets/HL-InfraAtHome.png)
