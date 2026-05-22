@@ -104,7 +104,7 @@ scrape_configs:
     module: ['icmp']
   static_configs:
     - targets:
-      - 8.8.8.8 #google
+      - 10.100.0.8 #google
       - 10.0.1.x # Freebox
       - 10.0.1.x #Nginx
       - 10.0.1.x #bind

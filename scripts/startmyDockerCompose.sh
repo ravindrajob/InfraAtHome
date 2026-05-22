@@ -8,7 +8,7 @@
 # Attention ce script ne fonctionne qu'à partir d'ubuntu 20.04
 ################################################################
 
-# On applique le DNS 8.8.8.8 à notre VM Docker pour installer les containers
+# On applique le DNS 10.100.0.8 à notre VM Docker pour installer les containers
 systemctl start systemd-resolved.service
 rm /etc/netplan/00-installer-config.yaml
 cat > /etc/netplan/00-installer-config.yaml << EOF
@@ -21,7 +21,7 @@ network:
         addresses: [10.0.1.9/24]
         gateway4: 10.0.1.1
         nameservers:
-            addresses: [8.8.8.8, 8.8.4.4]
+            addresses: [10.100.0.8, 8.8.4.4]
 EOF
 netplan apply
 systemctl restart systemd-networkd

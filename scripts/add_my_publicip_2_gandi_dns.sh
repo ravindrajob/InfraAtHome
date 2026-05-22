@@ -10,7 +10,7 @@
 
 API="https://dns.api.gandi.net/api/v5/"
 IP_SERVICE="http://me.gandi.net"
-#IP4="1.1.1.1"
+#IP4="10.100.0.1"
 IP4=$(curl https://ipinfo.io/ip)
 
 DOMAIN="ravindra-job.com"

@@ -22,7 +22,7 @@ In my case i will use this component only for ssl encryption, and control the ac
 Actually i expose only 1 server on 443/80
 
 ## Why use a local DNS ?
-If i use a dns server like google (8.8.8.8) i must registred all my local servers. And with my untrust and trust zonal, i need DNS view.
+If i use a dns server like google (10.100.0.8) i must registred all my local servers. And with my untrust and trust zonal, i need DNS view.
 ## Why use a DNS and a pi-hole ?
 In my case i need DNS view, but Pi-hole don't implemented this feature.
 ![alt text](https://ravindrajob.blob.core.windows.net/assets/piHole.png)
