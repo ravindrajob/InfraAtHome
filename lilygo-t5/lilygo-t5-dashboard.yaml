@@ -1,0 +1,53 @@
+################################################################
+# Titre: lilygo-t5-dashboard.yaml
+# Description : Configuration ESPHome pour dashboard E-Paper 4.7"
+# Auteur: Ravindra JOB
+# Source: https://github.com/ravindrajob/
+# Update: 22/05/2026 [v1.0 | RJ]
+################################################################
+
+esphome:
+  name: "lilygo-t5-epaper"
+  friendly_name: "Dashboard E-Paper Bureau"
+
+esp32:
+  board: esp32dev
+  framework:
+    type: arduino
+
+# Configuration de l'écran Lilygo T5 4.7" (EPD)
+display:
+  - platform: lilygo_t5_47
+    id: my_display
+    rotation: 0
+    update_interval: 10min # Mise à jour lente pour préserver la batterie
+    lambda: |-
+      it.fill(Color::WHITE);
+      it.print(0, 10, id(font_title), "Lab Simulation");
+      it.strftime(0, 60, id(font_main), "%H:%M", id(homeassistant_time).now());
+      
+      // Affichage des métriques Home Assistant
+      it.printf(0, 150, id(font_main), "Température: %.1f°C", id(temp_ext).state);
+      it.printf(0, 220, id(font_main), "Consommation: %d W", (int)id(power_usage).state);
+
+# Polices de caractères
+font:
+  - file: "fonts/Roboto-Bold.ttf"
+    id: font_title
+    size: 48
+  - file: "fonts/Roboto-Regular.ttf"
+    id: font_main
+    size: 32
+
+# Sources de données Home Assistant
+sensor:
+  - platform: homeassistant
+    id: temp_ext
+    entity_id: sensor.outdoor_temperature
+  - platform: homeassistant
+    id: power_usage
+    entity_id: sensor.total_power_consumption
+
+time:
+  - platform: homeassistant
+    id: homeassistant_time
