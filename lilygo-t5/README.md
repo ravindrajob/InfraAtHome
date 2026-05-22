@@ -1,10 +1,7 @@
-################################################################
-# Titre: Lilygo T5 4.7" Documentation
-# Description : Guide de déploiement d'un dashboard E-Paper ultra basse consommation
-# Auteur: Ravindra JOB
-# Source: https://github.com/ravindrajob/
-# Update: 22/05/2026 [v1.0 | RJ]
-################################################################
+# Lilygo T5 4.7" Documentation
+> **Architecture :** Guide de déploiement d'un dashboard E-Paper ultra basse consommation | **Version :** v2.3 | **Maintainer :** [Ravindra JOB](https://github.com/ravindrajob/)
+---
+
 
 # Dashboard E-Paper : Lilygo T5 4.7"
 
