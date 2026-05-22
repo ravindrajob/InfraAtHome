@@ -1,0 +1,11 @@
+substitutions:
+  name: "esp32-s3-box-3-lab"
+  friendly_name: "Assistant Vocal Labo"
+
+packages:
+  # Injection du modèle pré-entraîné MicroWakeWord
+  wake_word: github://esphome/firmware/voice-assistant/micro_wake_word.yaml@main
+
+micro_wake_word:
+  models:
+    - model: hey_jarvis

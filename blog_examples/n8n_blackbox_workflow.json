@@ -1,0 +1,73 @@
+{
+  "name": "ChatOps: Blackbox Exporter",
+  "nodes": [
+    {
+      "parameters": {
+        "updates": ["message"]
+      },
+      "id": "1",
+      "name": "Telegram Trigger",
+      "type": "n8n-nodes-base.telegramTrigger",
+      "typeVersion": 1,
+      "position": [ 250, 300 ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{ $json.message.text }}",
+              "operation": "startsWith",
+              "value2": "/check_infra"
+            }
+          ]
+        }
+      },
+      "id": "2",
+      "name": "Is /check_infra ?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [ 450, 300 ]
+    },
+    {
+      "parameters": {
+        "url": "http://blackboxexporter:9115/probe",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            { "name": "target", "value": "={{ $json.message.text.split(' ')[1] }}" },
+            { "name": "module", "value": "={{ $json.message.text.split(' ')[2] || 'http_2xx' }}" }
+          ]
+        },
+        "options": {}
+      },
+      "id": "3",
+      "name": "Call Blackbox API",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4,
+      "position": [ 650, 200 ]
+    },
+    {
+      "parameters": {
+        "chatId": "={{ $('Telegram Trigger').item.json.message.chat.id }}",
+        "text": "=Diagnostic demandé pour : {{ $json.query.target }}\n\nModule utilisé : {{ $json.query.module }}\nRésultat de la sonde (probe_success) : {{ $json.data.match(/probe_success 1/) ? '✅ UP' : '❌ DOWN' }}"
+      },
+      "id": "4",
+      "name": "Send Reply",
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1,
+      "position": [ 850, 200 ]
+    }
+  ],
+  "connections": {
+    "Telegram Trigger": {
+      "main": [ [ { "node": "Is /check_infra ?", "type": "main", "index": 0 } ] ]
+    },
+    "Is /check_infra ?": {
+      "main": [ [ { "node": "Call Blackbox API", "type": "main", "index": 0 } ] ]
+    },
+    "Call Blackbox API": {
+      "main": [ [ { "node": "Send Reply", "type": "main", "index": 0 } ] ]
+    }
+  }
+}
