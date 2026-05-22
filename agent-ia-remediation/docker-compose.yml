@@ -1,0 +1,21 @@
+version: '3.7'
+
+services:
+  n8n:
+    image: n8nio/n8n
+    container_name: n8n_remediation_agent
+    restart: always
+    ports:
+      - "5678:5678"
+    environment:
+      - GENERIC_TIMEZONE=Europe/Paris
+    volumes:
+      - ./n8n_data:/home/node/.n8n
+
+  # Conteneur cible (simulation pour le Lab)
+  serveur_web_cible:
+    image: nginx:latest
+    container_name: serveur_web_cible
+    restart: always
+    ports:
+      - "8080:80"

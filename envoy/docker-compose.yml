@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  envoy:
+    image: envoyproxy/envoy:v1.31-latest
+    container_name: envoy_proxy_lab
+    ports:
+      - "80:8080"
+      - "443:8443"
+      - "9901:9901" # Admin interface
+    volumes:
+      - ./envoy.yaml:/etc/envoy/envoy.yaml
+    restart: always
