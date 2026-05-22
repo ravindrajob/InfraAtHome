@@ -1,0 +1,14 @@
+version: '3.8'
+services:
+  languagetool:
+    image: erikvl87/languagetool
+    container_name: languagetool
+    restart: unless-stopped
+    ports:
+      - "8082:8010"
+    environment:
+      - langtool_languageModel=/ngrams
+    volumes:
+      - ./ngrams:/ngrams
+    env_file:
+      - .env

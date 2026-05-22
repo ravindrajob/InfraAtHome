@@ -1,0 +1,13 @@
+version: '3.8'
+services:
+  esphome:
+    image: esphome/esphome
+    container_name: esphome
+    restart: unless-stopped
+    ports:
+      - "6052:6052"
+    volumes:
+      - ./config:/config
+      - /etc/localtime:/etc/localtime:ro
+    env_file:
+      - .env

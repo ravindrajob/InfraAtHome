@@ -1,0 +1,12 @@
+version: '3.7'
+services:
+  n8n:
+    image: n8nio/n8n
+    container_name: n8n_workflow_automation
+    restart: always
+    ports:
+      - "5678:5678"
+    env_file:
+      - .env
+    volumes:
+      - ./n8n_data:/home/node/.n8n

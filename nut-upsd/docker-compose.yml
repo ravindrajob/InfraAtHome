@@ -1,0 +1,13 @@
+version: '3.8'
+services:
+  nut-upsd:
+    image: botsudo/nut-upsd:latest
+    container_name: nut_upsd
+    restart: unless-stopped
+    privileged: true
+    ports:
+      - "3493:3493"
+    devices:
+      - "/dev/bus/usb:/dev/bus/usb"
+    env_file:
+      - .env
