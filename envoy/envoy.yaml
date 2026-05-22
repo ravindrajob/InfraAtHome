@@ -22,26 +22,204 @@ static_resources:
           route_config:
             name: local_route
             virtual_hosts:
-            - name: local_service
-              domains: ["*"]
+            - name: frigate_vhost
+              domains: ["frigate.ravindra-job.com"]
               routes:
               - match:
                   prefix: "/"
                 route:
-                  cluster: some_service
-                  timeout: 5s
-
+                  cluster: frigate_cluster
+            - name: metube_vhost
+              domains: ["metube.ravindra-job.com"]
+              routes:
+              - match:
+                  prefix: "/"
+                route:
+                  cluster: metube_cluster
+            - name: tautulli_vhost
+              domains: ["tautulli.ravindra-job.com"]
+              routes:
+              - match:
+                  prefix: "/"
+                route:
+                  cluster: tautulli_cluster
+            - name: immich_vhost
+              domains: ["immich.ravindra-job.com"]
+              routes:
+              - match:
+                  prefix: "/"
+                route:
+                  cluster: immich_cluster
+            - name: dashy_vhost
+              domains: ["dashy.ravindra-job.com"]
+              routes:
+              - match:
+                  prefix: "/"
+                route:
+                  cluster: dashy_cluster
+            - name: languagetool_vhost
+              domains: ["languagetool.ravindra-job.com"]
+              routes:
+              - match:
+                  prefix: "/"
+                route:
+                  cluster: languagetool_cluster
+            - name: listmonk_vhost
+              domains: ["listmonk.ravindra-job.com"]
+              routes:
+              - match:
+                  prefix: "/"
+                route:
+                  cluster: listmonk_cluster
+            - name: n8n_vhost
+              domains: ["n8n.ravindra-job.com"]
+              routes:
+              - match:
+                  prefix: "/"
+                route:
+                  cluster: n8n_cluster
+            - name: esphome_vhost
+              domains: ["esphome.ravindra-job.com"]
+              routes:
+              - match:
+                  prefix: "/"
+                route:
+                  cluster: esphome_cluster
+            - name: plex_vhost
+              domains: ["plex.ravindra-job.com"]
+              routes:
+              - match:
+                  prefix: "/"
+                route:
+                  cluster: plex_cluster
   clusters:
-  - name: some_service
+  - name: frigate_cluster
     connect_timeout: 5s
     type: STRICT_DNS
     lb_policy: ROUND_ROBIN
     load_assignment:
-      cluster_name: some_service
+      cluster_name: frigate_cluster
       endpoints:
       - lb_endpoints:
         - endpoint:
             address:
               socket_address:
-                address: nginx-lab # Simulation for the public lab
+                address: frigate
+                port_value: 5000
+  - name: metube_cluster
+    connect_timeout: 5s
+    type: STRICT_DNS
+    lb_policy: ROUND_ROBIN
+    load_assignment:
+      cluster_name: metube_cluster
+      endpoints:
+      - lb_endpoints:
+        - endpoint:
+            address:
+              socket_address:
+                address: metube
+                port_value: 8081
+  - name: tautulli_cluster
+    connect_timeout: 5s
+    type: STRICT_DNS
+    lb_policy: ROUND_ROBIN
+    load_assignment:
+      cluster_name: tautulli_cluster
+      endpoints:
+      - lb_endpoints:
+        - endpoint:
+            address:
+              socket_address:
+                address: tautulli
+                port_value: 8181
+  - name: immich_cluster
+    connect_timeout: 5s
+    type: STRICT_DNS
+    lb_policy: ROUND_ROBIN
+    load_assignment:
+      cluster_name: immich_cluster
+      endpoints:
+      - lb_endpoints:
+        - endpoint:
+            address:
+              socket_address:
+                address: immich
+                port_value: 3001
+  - name: dashy_cluster
+    connect_timeout: 5s
+    type: STRICT_DNS
+    lb_policy: ROUND_ROBIN
+    load_assignment:
+      cluster_name: dashy_cluster
+      endpoints:
+      - lb_endpoints:
+        - endpoint:
+            address:
+              socket_address:
+                address: dashy
                 port_value: 80
+  - name: languagetool_cluster
+    connect_timeout: 5s
+    type: STRICT_DNS
+    lb_policy: ROUND_ROBIN
+    load_assignment:
+      cluster_name: languagetool_cluster
+      endpoints:
+      - lb_endpoints:
+        - endpoint:
+            address:
+              socket_address:
+                address: languagetool
+                port_value: 8010
+  - name: listmonk_cluster
+    connect_timeout: 5s
+    type: STRICT_DNS
+    lb_policy: ROUND_ROBIN
+    load_assignment:
+      cluster_name: listmonk_cluster
+      endpoints:
+      - lb_endpoints:
+        - endpoint:
+            address:
+              socket_address:
+                address: listmonk
+                port_value: 9000
+  - name: n8n_cluster
+    connect_timeout: 5s
+    type: STRICT_DNS
+    lb_policy: ROUND_ROBIN
+    load_assignment:
+      cluster_name: n8n_cluster
+      endpoints:
+      - lb_endpoints:
+        - endpoint:
+            address:
+              socket_address:
+                address: n8n
+                port_value: 5678
+  - name: esphome_cluster
+    connect_timeout: 5s
+    type: STRICT_DNS
+    lb_policy: ROUND_ROBIN
+    load_assignment:
+      cluster_name: esphome_cluster
+      endpoints:
+      - lb_endpoints:
+        - endpoint:
+            address:
+              socket_address:
+                address: esphome
+                port_value: 6052
+  - name: plex_cluster
+    connect_timeout: 5s
+    type: STRICT_DNS
+    lb_policy: ROUND_ROBIN
+    load_assignment:
+      cluster_name: plex_cluster
+      endpoints:
+      - lb_endpoints:
+        - endpoint:
+            address:
+              socket_address:
+                address: plex
+                port_value: 32400

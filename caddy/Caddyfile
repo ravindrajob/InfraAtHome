@@ -1,0 +1,42 @@
+# Configuration Caddy - Lab de Simulation
+
+frigate.ravindra-job.com {
+    reverse_proxy frigate:5000
+}
+
+metube.ravindra-job.com {
+    reverse_proxy metube:8081
+}
+
+tautulli.ravindra-job.com {
+    reverse_proxy tautulli:8181
+}
+
+immich.ravindra-job.com {
+    reverse_proxy immich:3001
+}
+
+dashy.ravindra-job.com {
+    reverse_proxy dashy:80
+}
+
+languagetool.ravindra-job.com {
+    reverse_proxy languagetool:8010
+}
+
+listmonk.ravindra-job.com {
+    reverse_proxy listmonk:9000
+}
+
+n8n.ravindra-job.com {
+    reverse_proxy n8n:5678
+}
+
+esphome.ravindra-job.com {
+    reverse_proxy esphome:6052
+}
+
+plex.ravindra-job.com {
+    reverse_proxy plex:32400
+}
+

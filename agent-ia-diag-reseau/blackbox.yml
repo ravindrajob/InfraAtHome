@@ -15,4 +15,4 @@ modules:
     prober: dns
     timeout: 5s
     dns:
-      query_name: "example.com" # Sera remplacé par le paramètre 'target'
+      query_name: "ravindra-job.com" # Sera remplacé par le paramètre 'target'

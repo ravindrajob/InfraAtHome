@@ -4,7 +4,7 @@ import json
 import os
 
 # Webhook simulé pour le lab public
-WEBHOOK_URL = os.getenv("WEBHOOK_URL", "https://n8n.lab-simulation.local/webhook/zigbee-alert")
+WEBHOOK_URL = os.getenv("WEBHOOK_URL", "https://n8n.ravindra-job.com/webhook/zigbee-alert")
 MQTT_BROKER = os.getenv("MQTT_BROKER", "localhost")
 
 def on_message(client, userdata, msg):
