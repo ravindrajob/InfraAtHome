@@ -1,4 +1,11 @@
 #!/bin/bash
+################################################################
+# Titre: add_my_publicip_2_gandi_dns.sh
+# Description : Composant technique du Lab de Simulation
+# Auteur: Ravindra JOB
+# Source: https://github.com/ravindrajob/
+# Update: 22/05/2026 [v1.0 | RJ]
+################################################################
 . /home/ravindra/scripts/credential # Comprend les identifiants de mon API GANDI
 
 API="https://dns.api.gandi.net/api/v5/"

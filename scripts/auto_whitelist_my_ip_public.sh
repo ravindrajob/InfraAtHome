@@ -1,4 +1,11 @@
 #!/bin/bash
+################################################################
+# Titre: auto_whitelist_my_ip_public.sh
+# Description : Composant technique du Lab de Simulation
+# Auteur: Ravindra JOB
+# Source: https://github.com/ravindrajob/
+# Update: 22/05/2026 [v1.0 | RJ]
+################################################################
 IP4=$(curl https://ipinfo.io/ip)
 currentIP=$(cat /etc/nginx/whitelist-allow.conf|sed 's/.*allow //'| tail -f -n 1 | awk -F';' '{print $1}')
 

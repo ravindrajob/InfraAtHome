@@ -1,3 +1,10 @@
+################################################################
+# Titre: alexa-remote-control.sh
+# Description : Composant technique du Lab de Simulation
+# Auteur: Ravindra JOB
+# Source: https://github.com/ravindrajob/
+# Update: 22/05/2026 [v1.0 | RJ]
+################################################################
 
 
 

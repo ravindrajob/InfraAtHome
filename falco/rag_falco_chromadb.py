@@ -1,3 +1,10 @@
+################################################################
+# Titre: rag_falco_chromadb.py
+# Description : Composant technique du Lab de Simulation
+# Auteur: Ravindra JOB
+# Source: https://github.com/ravindrajob/
+# Update: 22/05/2026 [v1.0 | RJ]
+################################################################
 from langchain_community.vectorstores import Chroma
 from langchain_huggingface import HuggingFaceEmbeddings
 import json

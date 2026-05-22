@@ -1,4 +1,11 @@
 #!/bin/sh
+################################################################
+# Titre: USB2UPS.sh
+# Description : Composant technique du Lab de Simulation
+# Auteur: Ravindra JOB
+# Source: https://github.com/ravindrajob/
+# Update: 22/05/2026 [v1.0 | RJ]
+################################################################
 charge=$(upsc qnapups@127.0.0.1 2>/dev/null| grep 'battery.charge:' | cut -d ' ' -f 2)
 load=$(upsc qnapups@127.0.0.1 2>/dev/null| grep 'ups.load:' | cut -d ' ' -f2)
 power=$(upsc qnapups@127.0.0.1 2>/dev/null| grep 'ups.power:' | cut -d ' ' -f2)

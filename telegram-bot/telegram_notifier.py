@@ -1,3 +1,10 @@
+################################################################
+# Titre: telegram_notifier.py
+# Description : Script Python autonome pour envoyer des alertes sur Telegram
+# Auteur: Ravindra JOB
+# Source: https://github.com/ravindrajob/
+# Update: 22/05/2026 [v1.0 | RJ]
+################################################################
 import requests
 import json
 import os

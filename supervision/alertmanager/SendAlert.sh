@@ -1,4 +1,11 @@
 #!/bin/bash
+################################################################
+# Titre: SendAlert.sh
+# Description : Composant technique du Lab de Simulation
+# Auteur: Ravindra JOB
+# Source: https://github.com/ravindrajob/
+# Update: 22/05/2026 [v1.0 | RJ]
+################################################################
 # Tester nos alerter AlertManager avec un simple CURL.
 # Record cherti -->  https://gist.github.com/cherti/61ec48deaaab7d288c9fcf17e700853a
 

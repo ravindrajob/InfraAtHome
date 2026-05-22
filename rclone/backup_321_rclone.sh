@@ -1,4 +1,11 @@
 #!/bin/bash
+################################################################
+# Titre: backup_321_rclone.sh
+# Description : Automatisation de la règle 3-2-1 via Rclone vers Azure Blob / S3
+# Auteur: Ravindra JOB
+# Source: https://github.com/ravindrajob/
+# Update: 22/05/2026 [v1.0 | RJ]
+################################################################
 # ==============================================================================
 # Script : backup_321_rclone.sh
 # Description : Automatisation de la règle 3-2-1 via Rclone vers Azure Blob / S3
