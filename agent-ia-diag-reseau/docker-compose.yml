@@ -1,0 +1,24 @@
+version: '3.7'
+
+services:
+  n8n:
+    image: n8nio/n8n
+    container_name: n8n_workflow_automation
+    restart: always
+    ports:
+      - "5678:5678"
+    environment:
+      - GENERIC_TIMEZONE=Europe/Paris
+    volumes:
+      - ./n8n_data:/home/node/.n8n
+
+  blackbox_exporter:
+    image: prom/blackbox-exporter:latest
+    container_name: blackbox_exporter
+    command:
+      - '--config.file=/etc/blackbox_exporter/config.yml'
+    volumes:
+      - ./blackbox.yml:/etc/blackbox_exporter/config.yml
+    ports:
+      - "9115:9115"
+    restart: always
