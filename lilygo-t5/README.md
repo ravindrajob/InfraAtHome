@@ -28,4 +28,4 @@ Pour un usage en production (Lab de simulation), nous recommandons :
 - **Grayscale :** La Lilygo T5 4.7" supporte 16 niveaux de gris, idéal pour des graphiques de consommation élégants.
 
 ---
-*Architecture conçue pour une durabilité maximale par Ravindra JOB.*
+Adoption industrialisée du CAF avec surcouche de sécurité et intégration des pratiques CNCF.
