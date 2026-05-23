@@ -3,8 +3,14 @@
 ---
 
 💡 **Philosophie & Partage :** 
-Ce dépôt constitue le **laboratoire de démonstration** public d'une infrastructure auto-hébergée (Home-Lab). OPSEC oblige, l'infrastructure réelle de production est totalement isolée.
-Les configurations sont partagées ici publiquement pour évangéliser les bonnes pratiques (Security by Design, automatisation, conteneurisation). Le code fourni est conçu pour être rigoureux, sécurisé (aucun secret en clair, gestion stricte des ports, utilisation systématique de `.env`) et prêt à être réutilisé pour d'autres environnements de laboratoire.
+Ce dépôt est le fruit de plusieurs décennies d'expérience et d'une passion inébranlable pour l'infrastructure. Il constitue un **laboratoire de démonstration** public d'une infrastructure auto-hébergée (Home-Lab). OPSEC oblige, l'infrastructure réelle de production est totalement isolée.
+
+L'objectif ici est de partager, en toute transparence et humilité, des configurations rigoureuses pour évangéliser les bonnes pratiques. L'architecture s'inspire fortement des standards de l'industrie (CNCF, Cloud Adoption Framework) en y intégrant un niveau d'exigence industriel : 
+- **Security by Design & Hardening Fort :** Zéro confiance (Zero Trust), aucun secret en clair, gestion stricte des flux, utilisation systématique de `.env`.
+- **Gouvernance & Observabilité Profonde :** Monitoring avancé (LGTM Stack, OpenTelemetry) pour garantir un MTTR (Mean Time To Recovery) extrêmement réduit.
+- **Automatisation & Self-Healing :** Infrastructure as Code, conteneurisation et mécanismes d'auto-remédiation.
+
+Le code fourni est neutre, factuel, sourcé lorsque nécessaire, et pensé pour être prêt à être réutilisé ou adapté pour d'autres environnements de laboratoire. Le but est de trouver le juste compromis entre une sécurité intransigeante et une opérabilité fluide.
 
 ---
 
