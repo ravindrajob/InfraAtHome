@@ -1,8 +1,10 @@
 # InfraAtHome
+> **Architecture :** Laboratoire de démonstration Home-Lab Sécurisé | **Version :** v2.3 | **Maintainer :** [Ravindra JOB](https://github.com/ravindrajob/)
+---
 
 💡 **Philosophie & Partage :** 
-L'infrastructure suis un ingénieur passionné d'infrastructure et extrêmement pointilleux sur la cybersécurité. L'auto-hébergement et l'automatisation sont bien plus qu'un métier pour moi. Ce dépôt est l' **laboratoire de démonstration**. (OPSEC oblige, l' infrastructure réelle de production est totalement isolée). 
-L'infrastructure partage ici ces configurations publiquement et gratuitement pour évangéliser les bonnes pratiques (Security by Design, automatisation, conteneurisation). Le code que vous trouverez ici est pensé pour être carré, méticuleux, sécurisé (pas de secrets en clair, gestion stricte des ports, utilisation de `.env`) et prêt à être réutilisé pour vos propres labs !
+Ce dépôt constitue le **laboratoire de démonstration** public d'une infrastructure auto-hébergée (Home-Lab). OPSEC oblige, l'infrastructure réelle de production est totalement isolée.
+Les configurations sont partagées ici publiquement pour évangéliser les bonnes pratiques (Security by Design, automatisation, conteneurisation). Le code fourni est conçu pour être rigoureux, sécurisé (aucun secret en clair, gestion stricte des ports, utilisation systématique de `.env`) et prêt à être réutilisé pour d'autres environnements de laboratoire.
 
 ---
 
